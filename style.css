@@ -1,0 +1,67 @@
+
+
+/*tirando o select do button*/
+body
+{
+    user-select: none;
+}
+
+/*colocando as medições/demais alterações no span dentro de label*/
+
+label span
+{
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    background: #ccc;
+    border-radius: 15px;
+    background-color: rgb(141, 141, 250);
+    cursor: pointer;
+    margin: 300px;
+}
+
+/*usando o mesmo span para criar um container animado usando ::before*/
+
+label span::before
+{
+    content: '';
+    display: block;
+    background: #eee;
+    width: 25px;
+    height: 20px;
+    border-radius: 15px;
+    margin: 2px;
+    transition: all 0.2s ease-in-out;
+}
+
+/*focado para acessibilidade*/
+
+label input:focus + span 
+{
+    box-shadow: 0 0 0 1px solid black;
+}
+
+/*usado para fazer a transição de on/off do container acima*/
+
+label input:checked + span::before
+{
+    transform: translateX(20.7px);
+}
+
+/*usando um background difrente para quando estiver on*/
+
+label input:checked + span
+{
+    background: blue;
+    transition: all 0.2s ;
+}
+
+/*deixando o input padrão transparente*/
+
+input
+{
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
